@@ -1,0 +1,87 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'Victus Consulting'
+theme: "PaperMod"
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: ExampleSite
+    description: "ExampleSite description"
+    keywords: [Blog, Portfolio, PaperMod]
+    author: "Travis Vilac"
+    ShowReadingTime: true
+    # ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    ShowWordCount: true
+    ShowRssButtonInSectionTermList: true
+    UseHugoToc: true
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: false
+
+    profileMode:
+        enabled: true
+        title: "My Website Title" # optional default will be site title
+        subtitle: "This is subtitle"
+        imageUrl: "<image link>" # optional
+        imageTitle: "<title of image as alt>" # optional
+        imageWidth: 120 # custom size
+        imageHeight: 120 # custom size
+        # buttons:
+        #     - name: Archive
+        #       url: "/archives"
+        #     - name: Search
+        #       url: "/search"
+        #     - name: Github
+        #       url: "https://github.com/"
+    # home-info mode
+    homeInfoParams:
+      Title: "Hi there \U0001F44B"
+      Content: Welcome to my blog
+
+    socialIcons: # optional
+        - name: "GitHub"
+          url: "https://github.com/traviscancode604"
+        - name: "Twitter"
+          url: "https://twitter.com/traviscancode"
+
+    editPost:
+      URL: "https://github.com/<path_to_repo>/content"
+      Text: "Suggest Changes" # edit text
+      appendFilePath: true # to append file path to Edit link
+    
+    fuseOpts:
+      isCaseSensitive: false
+      shouldSort: true
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: archive
+      name: Archives
+      url: /archives
+      weight: 10
+    - identifier: search
+      name: Search
+      url: /search
+      weight: 20
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
