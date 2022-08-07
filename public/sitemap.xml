@@ -2,28 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/tags/first/</loc>
+    <loc>https://traviscancode604.github.io/victus/tags/first/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/my-first-post/</loc>
+    <loc>https://traviscancode604.github.io/victus/posts/my-first-post/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/other-tag/</loc>
+    <loc>https://traviscancode604.github.io/victus/tags/other-tag/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://traviscancode604.github.io/victus/posts/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://traviscancode604.github.io/victus/tags/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://traviscancode604.github.io/victus/</loc>
     <lastmod>2022-08-03T11:30:00-08:00</lastmod>
   </url><url>
-    <loc>http://example.org/archives/</loc>
+    <loc>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://traviscancode604.github.io/victus/projects/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/search/</loc>
+    <loc>https://traviscancode604.github.io/victus/archives/</loc>
+  </url><url>
+    <loc>https://traviscancode604.github.io/victus/archives/</loc>
+  </url><url>
+    <loc>https://traviscancode604.github.io/victus/categories/</loc>
+  </url><url>
+    <loc>https://traviscancode604.github.io/victus/search/</loc>
   </url>
 </urlset>

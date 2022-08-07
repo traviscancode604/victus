@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Victus Consulting</title>
-    <link>http://example.org/tags/</link>
+    <link>https://traviscancode604.github.io/victus/tags/</link>
     <description>Recent content in Tags on Victus Consulting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Aug 2022 11:30:00 -0800</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 11:30:00 -0800</lastBuildDate><atom:link href="https://traviscancode604.github.io/victus/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>first</title>
-      <link>http://example.org/tags/first/</link>
+      <link>https://traviscancode604.github.io/victus/tags/first/</link>
       <pubDate>Wed, 03 Aug 2022 11:30:00 -0800</pubDate>
       
-      <guid>http://example.org/tags/first/</guid>
+      <guid>https://traviscancode604.github.io/victus/tags/first/</guid>
       <description></description>
     </item>
     
     <item>
       <title>other tag</title>
-      <link>http://example.org/tags/other-tag/</link>
+      <link>https://traviscancode604.github.io/victus/tags/other-tag/</link>
       <pubDate>Wed, 03 Aug 2022 11:30:00 -0800</pubDate>
       
-      <guid>http://example.org/tags/other-tag/</guid>
+      <guid>https://traviscancode604.github.io/victus/tags/other-tag/</guid>
       <description></description>
     </item>
     

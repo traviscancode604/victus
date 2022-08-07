@@ -2,17 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>other tag on Victus Consulting</title>
-    <link>http://example.org/tags/other-tag/</link>
+    <link>https://traviscancode604.github.io/victus/tags/other-tag/</link>
     <description>Recent content in other tag on Victus Consulting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Aug 2022 11:30:00 -0800</lastBuildDate><atom:link href="http://example.org/tags/other-tag/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 11:30:00 -0800</lastBuildDate><atom:link href="https://traviscancode604.github.io/victus/tags/other-tag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My 1st post</title>
-      <link>http://example.org/posts/my-first-post/</link>
+      <link>https://traviscancode604.github.io/victus/posts/my-first-post/</link>
       <pubDate>Wed, 03 Aug 2022 11:30:00 -0800</pubDate>
       
-      <guid>http://example.org/posts/my-first-post/</guid>
+      <guid>https://traviscancode604.github.io/victus/posts/my-first-post/</guid>
+      <description>Desc Text here.</description>
+    </item>
+    
+    <item>
+      <title>Configuration as Code</title>
+      <link>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</guid>
       <description>Desc Text here.</description>
     </item>
     
