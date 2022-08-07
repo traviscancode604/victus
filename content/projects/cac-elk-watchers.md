@@ -1,11 +1,10 @@
 ---
-title: "My 1st post"
-date: 2022-08-03T11:30:00-08:00
+title: "Project - ELK Stack Watchers Configuration as Code"
+date: 2022-08-05
 # weight: 1
 # aliases: ["/first"]
 tags: ["first", "other tag"]
 author: "Travis Vilac"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -25,9 +24,9 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
+    image: "projects/images/test.jpeg" # image path/url
+    alt: "rack city" # alt text
+    caption: "caption caption caption" # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:
@@ -36,3 +35,5 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 test content blah blah blah.
+
+![your image](../images/test.jpeg)
