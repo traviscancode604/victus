@@ -77,7 +77,7 @@ params:
 menu:
   main:
     - identifier: archive
-      name: Archives
+      name: Blog Posts
       url: /archives
       weight: 10
     - identifier: projects

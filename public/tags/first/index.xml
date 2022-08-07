@@ -6,22 +6,22 @@
     <description>Recent content in first on Victus Consulting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Aug 2022 11:30:00 -0800</lastBuildDate><atom:link href="https://traviscancode604.github.io/victus/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://traviscancode604.github.io/victus/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project - ELK Stack Watchers Configuration as Code</title>
+      <link>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</link>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</guid>
+      <description>Desc Text here.</description>
+    </item>
+    
     <item>
       <title>My 1st post</title>
       <link>https://traviscancode604.github.io/victus/posts/my-first-post/</link>
       <pubDate>Wed, 03 Aug 2022 11:30:00 -0800</pubDate>
       
       <guid>https://traviscancode604.github.io/victus/posts/my-first-post/</guid>
-      <description>Desc Text here.</description>
-    </item>
-    
-    <item>
-      <title>Configuration as Code</title>
-      <link>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</link>
-      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://traviscancode604.github.io/victus/projects/cac-elk-watchers/</guid>
       <description>Desc Text here.</description>
     </item>
     
