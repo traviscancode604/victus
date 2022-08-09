@@ -50,7 +50,7 @@ From the `Hugo` [website](https://gohugo.io/about/what-is-hugo/):
 >*Hugo is a general-purpose website framework. Technically speaking, **Hugo is a static site generator**. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content.*
 
 ### Why I Chose to Use Hugo
-For my purposes, a static site using a website framework is more than adequate to achieve my objectives. I am going for a minimalist look and also wanted small web pages for faster deployment. I was more concerned with the CI/CD portion of this exercise than the website itself.
+For my purposes, a static site using a website framework is more than adequate to achieve my objectives. I am going for a minimalist look and also wanted small web pages for faster deployment. I was more concerned with the CI/CD portion of this exercise than the site itself.
 
 ### Installing Hugo
 Instructions on how to install `Hugo` can be found [here](https://gohugo.io/getting-started/installing/).
@@ -64,7 +64,7 @@ brew install hugo
 ### Quickstart Guide, but with PaperMod Theme
 Once `Hugo` is installed, there are only a few lines of code that need to be ran to get a bare-bones website built. Blending together the code from the [Hugo Quickstart](https://gohugo.io/getting-started/quick-start/) guide and the [PaperMod Hugo Theme](https://themes.gohugo.io/themes/hugo-papermod/) documentation, running the following code will build a website with theme I am using.
 
-In the first 3 lines below, modify the values of `GH_REPOS`, `SITENAME` and `GH_USERNAME` to be reflective your own setup:
+In the first 3 lines below, modify the values of `GH_REPOS`, `SITENAME` and `GH_USERNAME` to be reflective of your own setup:
 
 ```zsh
 export GH_REPOS=~/Documents/GitHub # Update with your GitHub repos folder here
@@ -226,16 +226,20 @@ hugo new posts/my-first-post.md
 ### Push to GitHub
 Create a repo for the project on `GitHub` and push the contents of your local repo to `GitHub`.
 
+> Note: If you happened to stumble across this post and are brand new to `GitHub`, [checkout these docs](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github) if you need help with pushing a repo.
+
 ## GitHub Actions
-As of August 2022, you can now deploy a `GitHub Pages` site directly from a repo [using a custom GitHub Actions](https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/) workflow. This feature is in beta, but it significantly streamlines the process of using `GitHub Actions` to deploy a `GitHub Pages` site.
+As of August 2022, you can now deploy a `GitHub Pages` site directly from a repo [using a custom GitHub Actions workflow](https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/). This feature is in beta, but it significantly streamlines the process of using `GitHub Actions` to deploy a `GitHub Pages` site.
 
 ### Quick Note on the Workflow Example from Hugo Website
-The `Hugo` documentation for [hosting on GitHub](https://gohugo.io/hosting-and-deployment/hosting-on-github/) is still written in the 'traditional method'. That is, the context if the documentation is using a workflow to create a branch for the generated website content as a publishing source, and deploying a `GitHub Pages` site from this newly created branch. The instructions in the `Hugo` documentation are still relevant (at the time of writing) - you can follow them and successfully deploy a `GitHub Pages` site.
+The `Hugo` documentation for [hosting on GitHub](https://gohugo.io/hosting-and-deployment/hosting-on-github/) is still written in the "traditional method" (wasn't sure what to call it with this new beta feature). That is, the context of the documentation is using a workflow to create a branch for the generated website content as a publishing source, and deploying a `GitHub Pages` site from this newly created branch. The instructions in the `Hugo` documentation are still relevant (at the time of writing) - you can follow them and successfully deploy a `GitHub Pages` site.
 
 **After trying both methods, I prefer the custom `GitHub Actions` workflow**.
 
 ### Using Custom GitHub Actions Workflow
-This new feature for a custom `GitHub Actions` workflow to build and deploy a `GitHub Pages` site excites me. The feature eliminates the need for a branch as a publishing source to deploy your `GitHub Pages` site. Personally, I find it a bit more intuitive to use than deploying from a branch (but that could be a matter of opinion). I went a step further on the starter workflow for my website's custom workflow and set it up to build and deploy only on merged PRs, instead of using pushes to the `main` branch as a trigger. I won't get into the details this post (feel free to [checkout my workflow](https://github.com/traviscancode604/victus/blob/b7873d139010d80094875d4c0e161bc42496a987/.github/workflows/pages.yml)), but I did want to show how easy it is to get a `GitHub Pages` site up and running with a custom `GitHub Actions` workflow. It only takes 5 clicks and requires no previous knowledge about CI/CD workflows:
+This new feature for a custom `GitHub Actions` workflow to build and deploy a `GitHub Pages` site excites me. The feature eliminates the need for a branch as a publishing source to deploy your `GitHub Pages` site. Personally, I find the custom `GitHub Actions` workflow a bit more intuitive to use than using a new branch as a publishing source (but that could be a matter of opinion). I went a step further on the starter workflow `GitHub` provided for my website and set it up to build and deploy only on merged PRs, instead of using pushes to the `main` branch as a trigger. I won't get into the details in this post (feel free to [checkout my workflow](https://github.com/traviscancode604/victus/blob/b7873d139010d80094875d4c0e161bc42496a987/.github/workflows/pages.yml)), but I did want to show how easy it is to get a `GitHub Pages` site up and running with a custom `GitHub Actions` workflow. 
+
+It only takes 5 clicks and requires no previous knowledge about CI/CD workflows:
 
 1. Under Settings -> Pages (where you would normally deploy from a branch), **Click** the dropdown menu for Source:
 ![Click #1](../images/220808-001.png)
