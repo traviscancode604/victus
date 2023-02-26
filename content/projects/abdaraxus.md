@@ -1,6 +1,6 @@
 ---
-title: "Project - ELK Stack Watchers Configuration as Code"
-date: 2022-08-05
+title: "'Abdaraxus' Project"
+date: 2023-02-01
 # weight: 1
 # aliases: ["/first"]
 tags: ["other tag"]
@@ -10,7 +10,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Desc Text here."
+description: "A preview of what I am working on during the evening and weekends!"
 # canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
@@ -30,8 +30,11 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/traviscancode604/victus/blob/main/projects"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-Coming soon!
+
+# What is it?
+
+Simplify your maintenance tasks with Abdaraxus CMMS. Designed with technicians in mind, our user-friendly interface makes it easy to stay on top of your maintenance schedule. No more manual tracking or confusing spreadsheets, with Abdaraxus all your maintenance information is in one place. Give your technicians the tools they need to work smarter, not harder, with Abdaraxus CMMS.
