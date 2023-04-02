@@ -30,9 +30,9 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:
-    URL: "https://github.com/traviscancode604/victus/blob/main/content/about"
+    URL: "https://github.com/traviscancode604/victus/blob/main/content/about.md"
     Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    appendFilePath: false # to append file path to Edit link
 ---
 
 Hi! I am a DevOps Engineer and Certified Kubernetes Administrator with a background in electrical engineering. I am passionate about delivering high-quality solutions to end users. My experience with CI/CD pipelines and Kubernetes has allowed me to frequently build and deploy production-grade code, while ensuring seamless integration and reliability for end-users. I am proficient in Kubernetes, OpenShift, Docker, Jenkins, ELK Stack, etc.
