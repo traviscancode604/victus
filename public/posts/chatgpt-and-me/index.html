@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+<meta property="og:url" content="http://localhost:1313/posts/chatgpt-and-me/">
+  <meta property="og:site_name" content="Hugo Fresh Theme">
+  <meta property="og:title" content="ChatGPT and Me">
+  <meta property="og:description" content="What I have been using ChatGPT for (with some easy to follow examples)">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-02-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-02-26T00:00:00+00:00">
+    <meta property="article:tag" content="ChatGPT">
+    <meta property="article:tag" content="Openai.com">
+    <meta property="article:tag" content="Linting">
+    <meta property="article:tag" content="MATLAB">
+    <meta property="article:tag" content="Jupyter">
+    <meta property="article:tag" content="Python">
+
+
+<meta name="description" content="Hardcoded description; the author should update :)" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hugo Fresh Theme</title>
+    
+  
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/icons.css">
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+  
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/victus.png" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="/projects" class="navbar-item is-secondary">
+            Projects
+          </a>
+          <a href="/archives" class="navbar-item is-secondary">
+            Blog
+          </a>
+          <a href="/about" class="navbar-item is-secondary">
+            About
+          </a>
+          <a href="/" class="navbar-item">
+            <span class="button signup-button rounded secondary-btn raised">
+              Sign up
+            </span>
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/victus.png" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="/projects" class="navbar-item is-secondary">
+          Projects
+        </a>
+        <a href="/archives" class="navbar-item is-secondary">
+          Blog
+        </a>
+        <a href="/about" class="navbar-item is-secondary">
+          About
+        </a>
+        <a href="/" class="navbar-item">
+          <span class="button signup-button rounded secondary-btn raised">
+            Sign up
+          </span>
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">ChatGPT and Me</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2 id="captains-log">Captain&rsquo;s Log</h2>
+<p>I have been keeping busy after work and on weekends lately with side projects. I&rsquo;ll address the main one I am working on in a future blog post, but one tool that has been helpful in keeping things moving along is <a href="https://chat.openai.com">ChatGPT</a>.</p>
+<p>Here are three ways I&rsquo;ve been using it to enhance my productivity:</p>
+<h2 id="1---assist-with-linting-code">1 - Assist with Linting Code</h2>
+<p>Linting is great. It helps ensure that your code adheres to a preferred coding standards. I am using <a href="https://eslint.org/">ESLint</a> and the <a href="https://github.com/airbnb/javascript">AirBNB Style Guide</a> For the JavaScript projects I am working on. Sometimes, if I revisit code I haven&rsquo;t looked at for a few months and didn&rsquo;t use a linter on (I know, shame on me), ChatGPT can provide a quick means to clean up the code without having to decipher the linting rule.</p>
+<p>To show an example that&rsquo;s easy to understand, consider the following:</p>
+<blockquote>
+<p><strong>TV</strong>: <code>eslint</code> is flagging this on <code>arrow-parens</code> rule, how do I fix this code snippet to pass the linter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">profileFields</span>.<span style="color:#a6e22e">skills</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">skills</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>).<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">skill</span> =&gt; <span style="color:#a6e22e">skill</span>.<span style="color:#a6e22e">trim</span>());
+</span></span></code></pre></div></blockquote>
+<blockquote>
+<p><strong>ChatGPT</strong>: To pass the <code>eslint</code> <code>arrow-parens</code> rule with this code snippet, you can add parentheses around the parameter &ldquo;skill&rdquo; in the arrow function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">profileFields</span>.<span style="color:#a6e22e">skills</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">skills</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>).<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">skill</span>) =&gt; <span style="color:#a6e22e">skill</span>.<span style="color:#a6e22e">trim</span>());
+</span></span></code></pre></div><p>This tells <code>eslint</code> that you are intentionally using an arrow function with a single parameter named &ldquo;skill&rdquo;. By adding the parentheses, you are being more explicit about the parameter and avoiding the linter error.</p></blockquote>
+<p>Not bad.</p>
+<h2 id="2---another-starting-point-for-problem-solving">2 - Another Starting Point for Problem Solving</h2>
+<p>Google, Stack Overflow and vendor documentation are still my preferred starting points for planning out an approach to solve a problem, but having another tool to help with this is quite the luxury. Asking a basic question to ChatGPT and seeing what it outputs can be useful. You don&rsquo;t need to (and in a lot of cases, should not) take the answer verbatim, but it can be helpful in supplementing you on your quest to solve your current problem.</p>
+<p>To use a real world example, <a href="https://blogs.mathworks.com/matlab/2023/01/30/official-mathworks-matlab-kernel-for-jupyter-released/">this blog post</a> was shared with me recently about adding the MATLAB kernel to JupyterLab. Comparing the blog post to the solution presented by ChatGPT, I thought the AI did well:</p>
+<blockquote>
+<p><strong>TV</strong>: how do I add the MATLAB kernel to JupyterLab in kubernetes</p></blockquote>
+<blockquote>
+<p><strong>ChatGPT</strong>:
+To add the MATLAB kernel to JupyterLab in Kubernetes, you will need to follow these steps:</p>
+<ol>
+<li>
+<p>Create a custom Docker image that includes the MATLAB kernel and any necessary dependencies. You can create this image using a Dockerfile that installs the MATLAB kernel and any necessary dependencies, then builds the image.</p>
+</li>
+<li>
+<p>Push the custom Docker image to a container registry, such as Docker Hub or Google Container Registry.</p>
+</li>
+<li>
+<p>Create a Kubernetes deployment that uses the custom Docker image. This deployment should include a pod template that specifies the image, the necessary environment variables, and any other configuration settings.</p>
+</li>
+<li>
+<p>Expose the deployment as a service, so that you can access the JupyterLab instance from outside the Kubernetes cluster.</p>
+</li>
+<li>
+<p>Configure the JupyterLab instance to use the MATLAB kernel by adding the appropriate kernel configuration file to the JupyterLab instance. This file should specify the name and command of the MATLAB kernel, as well as any necessary environment variables.</p>
+</li>
+<li>
+<p>Finally, access the JupyterLab instance using a web browser and verify that you can create new notebooks that use the MATLAB kernel.</p>
+</li>
+</ol>
+<p>Note that the specific steps for adding the MATLAB kernel to JupyterLab in Kubernetes may vary depending on your specific environment and requirements.</p></blockquote>
+<h2 id="3---jog-your-memory-on-code-implementation">3 - Jog your Memory on Code Implementation</h2>
+<p>This one is pretty straight forward. There will come a time where you are looking a line of code that was written by someone who is no longer on the team or at the organization, and you&rsquo;ll ask yourself: Why?</p>
+<p><img src="../images/230226-001.png" alt="Why?"></p>
+<p>Here is another simple example of how ChatGPT can help:</p>
+<blockquote>
+<p><strong>TV</strong>: For Python string checking, why might I use <code>not None</code> instead of looking for a truthy value</p></blockquote>
+<blockquote>
+<p><strong>ChatGPT</strong>: Using <code>not None</code> for checking a Python string checks if the string is defined and not None, whereas truthy value checking only checks if the string has a truthy value (e.g. not &quot;&quot; or 0) which may not be the desired result. The former provides a more explicit check and ensures the string is not only defined but also not equal to None.</p></blockquote>
+<p>You could reach a similar conclusion reading documentation, newsletters, blogs, etc (<a href="https://realpython.com/null-in-python/">this one from Real Python is pretty good</a>), but getting a concise answer like the one above may be enough to jog your memory on some implementation basics if you happen to be drawing a blank.</p>
+<p>Voilà!</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/airbnb/javascript">AirBNB Style Guide</a></li>
+<li><a href="https://chat.openai.com">ChatGPT</a></li>
+<li><a href="https://eslint.org/">ESLint</a></li>
+<li><a href="https://realpython.com/null-in-python/">Null in Python: Understanding Python&rsquo;s NoneType Object</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+  
+
+
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="/js/fresh.js"></script>
+<script src="/js/jquery.panelslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on Hugo Fresh Theme</title>
+    <link>http://localhost:1313/tags/javascript/</link>
+    <description>Recent content in JavaScript on Hugo Fresh Theme</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT and Me</title>
+      <link>http://localhost:1313/posts/chatgpt-and-me/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/chatgpt-and-me/</guid>
+      <description>&lt;h2 id=&#34;captains-log&#34;&gt;Captain&amp;rsquo;s Log&lt;/h2&gt;&#xA;&lt;p&gt;I have been keeping busy after work and on weekends lately with side projects. I&amp;rsquo;ll address the main one I am working on in a future blog post, but one tool that has been helpful in keeping things moving along is &lt;a href=&#34;https://chat.openai.com&#34;&gt;ChatGPT&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Here are three ways I&amp;rsquo;ve been using it to enhance my productivity:&lt;/p&gt;&#xA;&lt;h2 id=&#34;1---assist-with-linting-code&#34;&gt;1 - Assist with Linting Code&lt;/h2&gt;&#xA;&lt;p&gt;Linting is great. It helps ensure that your code adheres to a preferred coding standards. I am using &lt;a href=&#34;https://eslint.org/&#34;&gt;ESLint&lt;/a&gt; and the &lt;a href=&#34;https://github.com/airbnb/javascript&#34;&gt;AirBNB Style Guide&lt;/a&gt; For the JavaScript projects I am working on. Sometimes, if I revisit code I haven&amp;rsquo;t looked at for a few months and didn&amp;rsquo;t use a linter on (I know, shame on me), ChatGPT can provide a quick means to clean up the code without having to decipher the linting rule.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
