@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Pages on Hugo Fresh Theme</title>
+    <link>http://localhost:1313/tags/github-pages/</link>
+    <description>Recent content in GitHub Pages on Hugo Fresh Theme</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Relaunching my Website Using Hugo and GitHub Pages Custom GitHub Actions Workflow</title>
+      <link>http://localhost:1313/posts/github-actions-deploy-hugo/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-actions-deploy-hugo/</guid>
+      <description>&lt;h2 id=&#34;captains-log&#34;&gt;Captain&amp;rsquo;s Log&lt;/h2&gt;&#xA;&lt;p&gt;Relaunching my website has been on my to-do list for most of the year. I finally managed to carve out some time to get this project started.&lt;/p&gt;&#xA;&lt;p&gt;In doing this, I had two main objectives for the new website:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Have a proper website to showcase my portfolio and social media links&lt;/li&gt;&#xA;&lt;li&gt;Deploy the website using &lt;code&gt;GitHub Actions&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Both &lt;code&gt;Hugo&lt;/code&gt; and &lt;code&gt;GitHub Actions&lt;/code&gt; were new tools to me that I wanted to learn. While this isn&amp;rsquo;t a full fledged tutorial, I did want to share my experiences (and code snippets) from getting the new site up and running. I would still highly recommend reading the documentation available for  &lt;code&gt;Hugo&lt;/code&gt;, &lt;code&gt;GitHub Pages&lt;/code&gt; and &lt;code&gt;GitHub Actions&lt;/code&gt;. Please see the bottom of this post for &lt;a href=&#34;#resources&#34;&gt;links&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

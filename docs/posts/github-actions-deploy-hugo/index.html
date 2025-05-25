@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+<meta property="og:url" content="http://localhost:1313/posts/github-actions-deploy-hugo/">
+  <meta property="og:site_name" content="Hugo Fresh Theme">
+  <meta property="og:title" content="Relaunching my Website Using Hugo and GitHub Pages Custom GitHub Actions Workflow">
+  <meta property="og:description" content="My experience relaunching my website using Hugo and GH Actions.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-08-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-08-08T00:00:00+00:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="GitHub Actions">
+    <meta property="article:tag" content="CI CD">
+    <meta property="article:tag" content="GitHub Pages">
+    <meta property="article:tag" content="Workflow">
+
+
+<meta name="description" content="Hardcoded description; the author should update :)" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hugo Fresh Theme</title>
+    
+  
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/icons.css">
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+  
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/victus.png" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="/projects" class="navbar-item is-secondary">
+            Projects
+          </a>
+          <a href="/archives" class="navbar-item is-secondary">
+            Blog
+          </a>
+          <a href="/about" class="navbar-item is-secondary">
+            About
+          </a>
+          <a href="/" class="navbar-item">
+            <span class="button signup-button rounded secondary-btn raised">
+              Sign up
+            </span>
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/logos/victus.png" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="/projects" class="navbar-item is-secondary">
+          Projects
+        </a>
+        <a href="/archives" class="navbar-item is-secondary">
+          Blog
+        </a>
+        <a href="/about" class="navbar-item is-secondary">
+          About
+        </a>
+        <a href="/" class="navbar-item">
+          <span class="button signup-button rounded secondary-btn raised">
+            Sign up
+          </span>
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Relaunching my Website Using Hugo and GitHub Pages Custom GitHub Actions Workflow</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2 id="captains-log">Captain&rsquo;s Log</h2>
+<p>Relaunching my website has been on my to-do list for most of the year. I finally managed to carve out some time to get this project started.</p>
+<p>In doing this, I had two main objectives for the new website:</p>
+<ol>
+<li>Have a proper website to showcase my portfolio and social media links</li>
+<li>Deploy the website using <code>GitHub Actions</code></li>
+</ol>
+<p>Both <code>Hugo</code> and <code>GitHub Actions</code> were new tools to me that I wanted to learn. While this isn&rsquo;t a full fledged tutorial, I did want to share my experiences (and code snippets) from getting the new site up and running. I would still highly recommend reading the documentation available for  <code>Hugo</code>, <code>GitHub Pages</code> and <code>GitHub Actions</code>. Please see the bottom of this post for <a href="#resources">links</a>.</p>
+<h2 id="hugo---what-is-it">Hugo - What is it?</h2>
+<p>From the <code>Hugo</code> <a href="https://gohugo.io/about/what-is-hugo/">website</a>:</p>
+<blockquote>
+<p><em>Hugo is a general-purpose website framework. Technically speaking, <strong>Hugo is a static site generator</strong>. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content.</em></p></blockquote>
+<h3 id="why-i-chose-to-use-hugo">Why I Chose to Use Hugo</h3>
+<p>For my purposes, a static site using a website framework is more than adequate to achieve my objectives. I am going for a minimalist look and also wanted small web pages for faster deployment. I was more concerned with the CI/CD portion of this exercise than the site itself.</p>
+<h3 id="installing-hugo">Installing Hugo</h3>
+<p>Instructions on how to install <code>Hugo</code> can be found <a href="https://gohugo.io/getting-started/installing/">here</a>.</p>
+<p>I am using a MacBook, so I used <code>brew</code> to install <code>Hugo</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install hugo
+</span></span></code></pre></div><h3 id="quickstart-guide-but-with-papermod-theme">Quickstart Guide, but with PaperMod Theme</h3>
+<p>Once <code>Hugo</code> is installed, there are only a few lines of code that need to be ran to get a bare-bones website built. Blending together the code from the <a href="https://gohugo.io/getting-started/quick-start/">Hugo Quickstart</a> guide and the <a href="https://themes.gohugo.io/themes/hugo-papermod/">PaperMod Hugo Theme</a> documentation, running the following code will build a website with theme I am using.</p>
+<p>In the first 3 lines below, modify the values of <code>GH_REPOS</code>, <code>SITENAME</code> and <code>GH_USERNAME</code> to be reflective of your own setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>export GH_REPOS<span style="color:#f92672">=</span>~/Documents/GitHub <span style="color:#75715e"># Update with your GitHub repos folder here</span>
+</span></span><span style="display:flex;"><span>export SITENAME<span style="color:#f92672">=</span>my-hugo-website <span style="color:#75715e"># Update with your site name / repo name </span>
+</span></span><span style="display:flex;"><span>export GH_USERNAME<span style="color:#f92672">=</span>traviscancode604 <span style="color:#75715e"># Update with your username</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd $GH_REPOS
+</span></span><span style="display:flex;"><span>hugo new site $SITENAME
+</span></span><span style="display:flex;"><span>cd $SITENAME
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is where we select the theme</span>
+</span></span><span style="display:flex;"><span>git submodule add --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+</span></span><span style="display:flex;"><span>rm config.toml
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Refer to docs for a sample config file layout. </span>
+</span></span><span style="display:flex;"><span>echo baseURL: https://$GH_USERNAME.github.io/$SITENAME &gt;&gt; config.yml
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF &gt;&gt;config.yml
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">title: ExampleSite
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">paginate: 5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">theme: PaperMod
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">enableRobotsTXT: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">buildDrafts: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">buildFuture: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">buildExpired: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">googleAnalytics: UA-123-45
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">minify:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  disableXML: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  minifyOutput: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">params:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  title: ExampleSite
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  description: &#34;ExampleSite description&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  keywords: [Blog, Portfolio, PaperMod]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  author: Me
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # author: [&#34;Me&#34;, &#34;You&#34;] # multiple authors
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  images: [&#34;&lt;link or path of image for opengraph, twitter-cards&gt;&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  DateFormat: &#34;January 2, 2006&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  defaultTheme: auto # dark, light
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  disableThemeToggle: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowReadingTime: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowShareButtons: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowPostNavLinks: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowBreadCrumbs: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowCodeCopyButtons: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowWordCount: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ShowRssButtonInSectionTermList: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  UseHugoToc: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  disableSpecial1stPost: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  disableScrollToTop: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  comments: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  hidemeta: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  hideSummary: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  showtoc: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  tocopen: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  assets:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # disableHLJS: true # to disable highlight.js
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # disableFingerprinting: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    favicon: &#34;&lt;link / abs url&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    favicon16x16: &#34;&lt;link / abs url&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    favicon32x32: &#34;&lt;link / abs url&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    apple_touch_icon: &#34;&lt;link / abs url&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    safari_pinned_tab: &#34;&lt;link / abs url&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  label:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    text: &#34;Home&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    icon: /apple-touch-icon.png
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    iconHeight: 35
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # profile-mode
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  profileMode:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    enabled: false # needs to be explicitly set
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    title: ExampleSite
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    subtitle: &#34;This is subtitle&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    imageUrl: &#34;&lt;img location&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    imageWidth: 120
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    imageHeight: 120
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    imageTitle: my image
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    buttons:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Posts
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        url: posts
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Tags
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        url: tags
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # home-info mode
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  homeInfoParams:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Title: &#34;Hi there \U0001F44B&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Content: Welcome to my blog
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  socialIcons:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - name: twitter
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: &#34;https://twitter.com/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - name: stackoverflow
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: &#34;https://stackoverflow.com&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - name: github
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: &#34;https://github.com/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  analytics:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    google:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      SiteVerificationTag: &#34;XYZabc&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    bing:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      SiteVerificationTag: &#34;XYZabc&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    yandex:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      SiteVerificationTag: &#34;XYZabc&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  cover:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    hidden: true # hide everywhere but not in structured data
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    hiddenInList: true # hide on list pages and home
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    hiddenInSingle: true # hide on single page
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  editPost:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    URL: &#34;https://github.com/&lt;path_to_repo&gt;/content&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Text: &#34;Suggest Changes&#34; # edit text
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    appendFilePath: true # to append file path to Edit link
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # for search
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # https://fusejs.io/api/options.html
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fuseOpts:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    isCaseSensitive: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    shouldSort: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    location: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    distance: 1000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    threshold: 0.4
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    minMatchCharLength: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    keys: [&#34;title&#34;, &#34;permalink&#34;, &#34;summary&#34;, &#34;content&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">menu:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  main:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - identifier: categories
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: categories
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: /categories/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      weight: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - identifier: tags
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: tags
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: /tags/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      weight: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - identifier: example
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: example.org
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: https://example.org
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      weight: 30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">pygmentsUseClasses: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">markup:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  highlight:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    noClasses: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # anchorLineNos: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # codeFences: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # guessSyntax: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # lineNos: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    # style: monokai
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>hugo new posts/my-first-post.md
+</span></span></code></pre></div><h3 id="push-to-github">Push to GitHub</h3>
+<p>Create a repo for the project on <code>GitHub</code> and push the contents of your local repo to <code>GitHub</code>.</p>
+<blockquote>
+<p>Note: If you happened to stumble across this post and are brand new to <code>GitHub</code>, <a href="https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github">checkout these docs</a> if you need help with pushing a repo.</p></blockquote>
+<h2 id="github-actions">GitHub Actions</h2>
+<p>As of August 2022, you can now deploy a <code>GitHub Pages</code> site directly from a repo <a href="https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/">using a custom GitHub Actions workflow</a>. This feature is in beta, but it significantly streamlines the process of using <code>GitHub Actions</code> to deploy a <code>GitHub Pages</code> site.</p>
+<h3 id="quick-note-on-the-workflow-example-from-hugo-website">Quick Note on the Workflow Example from Hugo Website</h3>
+<p>The <code>Hugo</code> documentation for <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">hosting on GitHub</a> is still written in the &ldquo;traditional method&rdquo; (wasn&rsquo;t sure what to call it with this new beta feature). That is, the context of the documentation is using a workflow to create a branch for the generated website content as a publishing source, and deploying a <code>GitHub Pages</code> site from this newly created branch. The instructions in the <code>Hugo</code> documentation are still relevant (at the time of writing) - you can follow them and successfully deploy a <code>GitHub Pages</code> site.</p>
+<p><strong>After trying both methods, I prefer the custom <code>GitHub Actions</code> workflow</strong>.</p>
+<h3 id="using-custom-github-actions-workflow">Using Custom GitHub Actions Workflow</h3>
+<p>This new feature for a custom <code>GitHub Actions</code> workflow to build and deploy a <code>GitHub Pages</code> site excites me. The feature eliminates the need for a branch as a publishing source to deploy your <code>GitHub Pages</code> site. Personally, I find the custom <code>GitHub Actions</code> workflow a bit more intuitive to use than using a new branch as a publishing source (but that could be a matter of opinion). I went a step further on the starter workflow <code>GitHub</code> provided for my website and set it up to build and deploy only on merged PRs, instead of using pushes to the <code>main</code> branch as a trigger. I won&rsquo;t get into the details in this post (feel free to <a href="https://github.com/traviscancode604/victus/blob/b7873d139010d80094875d4c0e161bc42496a987/.github/workflows/pages.yml">checkout my workflow</a>), but I did want to show how easy it is to get a <code>GitHub Pages</code> site up and running with a custom <code>GitHub Actions</code> workflow.</p>
+<p>It only takes 5 clicks and requires no previous knowledge about CI/CD workflows:</p>
+<ol>
+<li>
+<p>Under Settings -&gt; Pages (where you would normally deploy from a branch), <strong>Click</strong> the dropdown menu for Source:
+<img src="../images/220808-001.png" alt="Click #1"></p>
+</li>
+<li>
+<p><strong>Click</strong> GitHub Actions (Beta)
+<img src="../images/220808-002.png" alt="Click #2"></p>
+</li>
+<li>
+<p><strong>Click</strong> Configure
+<img src="../images/220808-003.png" alt="Click #3"></p>
+</li>
+<li>
+<p><strong>Click</strong> Start Commit
+<img src="../images/220808-004.png" alt="Click #4"></p>
+</li>
+<li>
+<p><strong>Click</strong> Commit new file
+<img src="../images/220808-005.png" alt="Click #5"></p>
+</li>
+</ol>
+<p>You will now have a starter workflow in the <code>.github/workflows</code> directory:
+<img src="../images/220808-006.png" alt="github-pages Workflow"></p>
+<p>Now you can click Actions and see the status of the workflow:
+<img src="../images/220808-007.png" alt="Actions in Action Part 1"></p>
+<p><img src="../images/220808-008.png" alt="Actions in Action Part 2"></p>
+<p>Your repo will now have a <code>github-pages</code> environment:
+<img src="../images/220808-009.png" alt="blurb"></p>
+<p>If you click into <code>github-pages</code>, you can view the deployment:
+<img src="../images/220808-010.png" alt="blurb"></p>
+<p>Voilà!
+<img src="../images/220808-011.png" alt="blurb"></p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://gohugo.io/getting-started/installing/">Install Hugo</a></li>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quickstart</a></li>
+<li><a href="https://themes.gohugo.io/themes/hugo-papermod/">PaperMod Hugo Theme</a></li>
+<li><a href="https://docs.github.com/en/pages/quickstart">Quickstart for GitHub Pages</a></li>
+<li><a href="https://docs.github.com/en/actions/quickstart">Quickstart for GitHub Actions</a></li>
+<li><a href="https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/">GitHub Pages: Custom GitHub Actions Workflows (beta)</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+  
+
+
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="/js/fresh.js"></script>
+<script src="/js/jquery.panelslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  </body>
+</html>
