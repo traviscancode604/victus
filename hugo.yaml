@@ -75,8 +75,8 @@ params:
   #     url: /
   #   - title: Dropdown item
   #     url: /
-  - title: About
-    url: /about
+  # - title: About
+  #   url: /about
   # - title: Sign up
   #   url: /
   #   button: true
